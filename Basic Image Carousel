@@ -1,1 +1,95 @@
+import { useState } from "react";
+import { useTransition } from "react";
 
+function Button(){
+    const arr = ["src/assets/img1.png","src/assets/img2.png","src/assets/img3.png","src/assets/img4.png",]
+    const [count,setCount] = useState(0);
+    const [z,setZ] = useState(null);
+    const styles = {
+        transition:"transform 1s ease",
+        transform:"translateX(-150px)"
+    }
+
+    const transitionStyles = {
+        entering: {transform:"translateX(0px)"},
+        entered: {transform:"translateX(0px)"},
+        exiting:{transform:"translateX(-150px)"},
+        exited:{transform:"translateX(-150px)"},
+    };
+
+    function Changed({in: inProp}){
+        const nodeRef = useRef(null);
+        return(
+            <Transition nodeRef={nodeRef} in={inProp} timeout={300}>
+                {state => (
+                    <div ref={nodeRef} style={{
+                        ...styles,
+                        ...transitionStyles[state]
+                    }}>
+
+                    </div>
+                )}
+            </Transition>
+        );
+    }
+    function left(){
+        setZ({
+            transform:"translateX(-150px)",
+            transition:"transform 1s ease",
+        })
+        if(count==0){
+            setCount(arr.length-1);
+        }
+        else{
+            setCount(count-1);
+        }
+    }
+    function right(){
+      
+        if(count==arr.length-1){
+            setCount(0);
+            setZ({
+                transform:"scale(102%)",
+                transition:"transform 300ms ease",
+            })
+        }
+        else{
+            setCount(count+1);
+            setZ({
+                transform:"scale(102%)",
+                transition:"transform 300ms ease",
+            })
+        }
+       
+    }
+
+    return(
+        <>
+        <div id="container" style={{width:"1200px",height:"300px",display:"grid",gridTemplateRows:"auto auto auto",gridTemplateColumns:"auto auto auto"}}>
+        <Transition nodeRef={nodeRef} in={inProp} timeout={300}>
+                {state => (
+                    <div ref={nodeRef} style={{
+                        ...styles,
+                        ...transitionStyles[state]
+                    }}>
+
+                    </div>
+                )}
+            </Transition>
+        <button onClick={left} style={{width:"100px",height:"100px"}}>{"<"}</button>
+        <img src={arr[count]} width={"90%"} height={"100%"} style={{...z}}></img>
+        <button onClick={right} style={{width:"100px",height:"100px",}}>{">"}</button>
+        </div>
+        </>
+    )
+}
+
+function App(){
+    return(
+        <>
+        <Button />
+        </>
+    )
+}
+
+export default App;
