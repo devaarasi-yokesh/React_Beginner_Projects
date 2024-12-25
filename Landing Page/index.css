@@ -1,0 +1,83 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0% ;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header{
+ display: inline-flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ justify-content: space-between;
+ background-color: #242424;
+ border: 2px solid black;
+}
+
+/*logo*/
+img{
+  width: 6%;
+  height: auto;
+}
+
+/*nav items*/
+.navBar{
+  display: flex;
+  flex-direction: row;
+  }
+
+.navBar ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.4em;
+}
+
+.navBar li{
+  margin: 4px 15px;
+}
+
+
+/*heading*/
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/*list of items*/
+.genItems li{
+  justify-self: start;
+  line-height: 38px;
+}
+
+.space{
+  height: 400px;
+}
+/*footer*/
+.foot{
+  border-top: 2px solid black;
+  text-align: center;
+  margin: 30px 0px;
+  font-weight: bold;
+}
