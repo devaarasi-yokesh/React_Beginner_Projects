@@ -67,8 +67,18 @@ h1 {
 
 /*list of items*/
 .genItems li{
-  justify-self: start;
-  line-height: 38px;
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+}
+
+.genItems li::before{
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: blue;
+  margin-right: .8rem;
 }
 
 .space{
